@@ -1,2 +1,3 @@
 # GoBuffer_DB
-J’ai conçu ce projet de façon pédagogique et structurée (Disk Manager, Buffer Manager, pages, relations, moteur SQL minimal), non pas parce que je manque d’explications, mais parce que je souhaite approfondir les mécanismes bas-niveau des SGBD, indispensables pour l’optimisation, le stockage et l’efficacité des systèmes IA modernes.
+GoBuffer_DB is a small, educational database engine written in Go.
+I built this project not because I struggle to explain database concepts, but to strengthen my hands-on understanding of how real DBMS internals work — something increasingly important in modern AI systems.
