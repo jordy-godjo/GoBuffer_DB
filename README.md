@@ -1,6 +1,6 @@
 # GoBuffer_DB
 
-# Guide d'utilisation pour le jury — GoBuffer_DB(cross-plateforme)
+# Guide d'utilisation — GoBuffer_DB(cross-plateforme)
 
 Ce document contient des instructions pas-à-pas pour exécuter et vérifier le mini-SGBD sans la présence de l'auteur. Il prend en charge Windows (PowerShell) et Linux/macOS (bash). Il fournit un scénario d'exemple (`commands.txt`), un fichier CSV d'exemple, des patterns attendus, et des scripts pour exécuter automatiquement le scénario.
 
@@ -172,7 +172,7 @@ done
 if $allok; then echo PASS; exit 0; else echo FAIL; exit 2; fi
 ```
 
-## 5 — Checklist pour le jury (quoi vérifier)
+## 5 — Checklist (quoi vérifier)
 
 - [ ] `CREATE TABLE` : la table est créée sans erreur.
 - [ ] `INSERT` : les tuples insérés apparaissent dans `SELECT`.
