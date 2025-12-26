@@ -180,7 +180,7 @@ if $allok; then echo PASS; exit 0; else echo FAIL; exit 2; fi
 - [ ] `DELETE` : les tuples supprimés ne sont plus visibles.
 - [ ] `UPDATE` : les valeurs modifiées sont visibles (note : UPDATE = suppression + insertion interne).
 - [ ] Persistance : arrêter le binaire, relancer avec le même `config.txt` et vérifier que les tables/données persistent.
-- [ ] Optionnel : lancer `go test ./...` pour valider les tests unitaires.
+- [ ] Obligatoire : lancer `go test ./...` pour valider les tests unitaires.
 
 ## 6 — Erreurs courantes et dépannage rapide
 
