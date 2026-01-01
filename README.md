@@ -189,3 +189,4 @@ if $allok; then echo PASS; exit 0; else echo FAIL; exit 2; fi
 - Si le programme boucle ou plante : supprimer `data/` (voir section 2) et relancer.
 - Si vous voyez "unknown column type: REAL" : utilisez le binaire fourni par ce dépôt (ou reconstruisez après pull) — la version actuelle accepte `REAL`.
 
+C'est tout, merci !
