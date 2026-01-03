@@ -190,3 +190,5 @@ if $allok; then echo PASS; exit 0; else echo FAIL; exit 2; fi
 - Si vous voyez "unknown column type: REAL" : utilisez le binaire fourni par ce dépôt (ou reconstruisez après pull) — la version actuelle accepte `REAL`.
 
 C'est tout, merci !
+
+Pour toute erreur contacté moi sur les différents réseau, voir profil github
