@@ -1,6 +1,6 @@
 # GoBuffer_DB
 
-# Guide d'utilisation — GoBuffer_DB(cross-plateforme)
+# Guide d'utilisation — GoBuffer_DB (cross-plateforme)
 
 Ce document contient des instructions pas-à-pas pour exécuter et vérifier le mini-SGBD sans la présence de l'auteur. Il prend en charge Windows (PowerShell), Linux/macOS (bash) et autres OS. Il fournit un scénario d'exemple (`commands.txt`), un fichier CSV d'exemple, des patterns attendus, et des scripts pour exécuter automatiquement le scénario.
 
