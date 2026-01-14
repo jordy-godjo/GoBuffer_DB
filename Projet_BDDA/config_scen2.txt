@@ -1,0 +1,4 @@
+dbpath = "./DBScen2"
+pagesize = 4096
+dm_maxfilecount = 8
+bm_buffercount = 10

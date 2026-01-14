@@ -1,0 +1,170 @@
+Scen1: Gestion tables (2 points) scen1.txt
+Config: chemin DBScen1, taille page 4096, 10 frames
+CREATE TABLE Chanteurs (id:INT,nom:VARCHAR(100),note:FLOAT)
+CREATE TABLE Albums (id:INT,nom:VARCHAR(100),idChanteur:INT,codeProduction:CHAR(5),annee:CHAR(4))
+DESCRIBE TABLES
+résultat attendu: 2 tables, scen1out1.txt
+DROP TABLE Albums
+DESCRIBE TABLES
+résultat attendu: 1 table, scen1out2.txt
+EXIT
+(relancer)
+DESCRIBE TABLES
+résultat attendu: 1 table, scen1out3.txt
+CREATE TABLE Titres (id:INT,nom:VARCHAR(200),idChanteur:INT,idAlbum:INT,contientInsultes:CHAR(3))
+DESCRIBE TABLES
+résultat attendu: 2 tables, scen1out4.txt
+DROP TABLES
+DESCRIBE TABLES
+résultat attendu: 0 tables
+EXIT
+
+
+
+Scen2: Select 1 (1 point) scen2.txt
+Config: chemin DBScen2, taille page 4096, 10 frames
+CREATE TABLE Chanteurs (id:INT,nom:VARCHAR(100),note:FLOAT,avis:CHAR(5))
+SELECT c.nom FROM Chanteurs c
+résultat attendu: 0 records, scen2out1.txt
+INSERT INTO Chanteurs VALUES (1,"TaylorSwift",18.0,"Super")
+INSERT INTO Chanteurs VALUES (2,"BadBunny",15.8,"Moyen")
+SELECT * FROM Chanteurs cc
+résultat attendu: 2 records, scen2out2.txt
+INSERT INTO Chanteurs VALUES (3,"JustinBieber",10,"Beurk")
+EXIT
+(relancer)
+INSERT INTO Chanteurs VALUES (4,"RodStewart",19.5,"Moyen")
+SELECT singers.id FROM Chanteurs singers WHERE singers.avis="Moyen"
+résultat attendu: 2 records, scen2out3.txt
+SELECT f.nom,f.note FROM Chanteurs f WHERE f.note>15 AND "Moyen"<>f.avis
+résultat attendu: 1 record, scen2out4.txt
+SELECT A1.nom,A1.nom FROM Chanteurs A1 WHERE A1.avis<"Super" AND 10>=A1.note
+résultat attendu: 1 record, scen2out4.txt
+EXIT
+
+
+
+Scen3: Select 2 (1 point) scen3.txt
+Config: chemin DBScen3, taille page 4096, 2 frames
+CREATE TABLE R (C1:INT,C2:VARCHAR(13),C3:FLOAT,C4:INT,C5:INT,C6:VARCHAR(5))
+CREATE TABLE T (C1:CHAR(3),C2:INT,C3:INT,C4:INT,C5:VARCHAR(3))
+APPEND INTO R ALLRECORDS (R.csv)
+EXIT
+(relancer)
+SELECT * FROM T t
+résultat attendu: 0 records, scen3out1.txt
+APPEND INTO T ALLRECORDS (T.csv)
+SELECT r.C2,r.C1 FROM R r WHERE 89>=r.C5 AND 212<>r.C4 AND r.C2<r.C6 AND "abcbcb"<=r.C2 AND "aabbcd"<r.C2 AND 10<r.C3 AND r.C6="dbc" AND 512<=r.C4 AND r.C1<=r.C4 AND r.C1<630 AND 50<=r.C1 AND r.C3<54.0783734155809 AND "dbcab">=r.C6 AND r.C4>=r.C5 AND 80>=r.C5 AND r.C1>24 AND 80>=r.C5 AND r.C5<=r.C1 AND r.C6>="aabd"
+résultat attendu: 7 records, scen3out2.txt
+SELECT * FROM R r WHERE 1800>=r.C4 AND r.C1<=284 AND 71>r.C5 AND 72<=r.C1
+résultat attendu: 161 records, scen3out3.txt
+SELECT t.C3,t.C3 FROM T t WHERE t.C4>t.C2 AND t.C5>="egy" AND t.C1>"egw" AND 660<=t.C3 AND "ewr"<=t.C1 AND 993>=t.C4 AND 64=t.C2 AND t.C2<=75 AND t.C1>=t.C5
+résultat attendu: 12 records, scen3out4.txt
+EXIT
+
+
+
+Scen4: Delete 1 (1 point) scen4.txt
+Config: chemin DBScen4, taille page 4096, 2 frames
+CREATE TABLE Titres (nomTitre:VARCHAR(100),nomChanteur:VARCHAR(100),rang:INT,contientInsultes:CHAR(3))
+INSERT INTO Titres VALUES ("JeTAime","AnneCheriedelaTapisserie",23,"NON")
+INSERT INTO Titres VALUES ("JAiFaim","AnneCheriedelaTapisserie",7,"PEU")
+INSERT INTO Titres VALUES ("OhLaCourtoisie","AnneCheriedelaTapisserie",99,"PEU")
+DELETE Titres t WHERE t.contientInsultes="PEU"
+résultat attendu: 2 records, scen4out1.txt
+SELECT t.nomTitre FROM Titres t WHERE t.contientInsultes="PEU"
+résultat attendu: 0 records, scen4out2.txt
+EXIT
+(relancer)
+INSERT INTO Titres VALUES ("CaSentLeShhhhhh","NicoZeFreako",1,"PEU")
+INSERT INTO Titres VALUES ("MesFriendsDansMaBenz","NicoZeFreako",2,"OUI")
+DELETE Titres t WHERE t.contientInsultes<>"NON"
+résultat attendu: 2 records, scen4out3.txt
+DELETE Titres t WHERE 10>t.rang AND nomTitre<>"JeTAime"
+résultat attendu: 0 records, scen4out4.txt
+SELECT * FROM Titres t
+résultat attendu: 1 record, scen4out5.txt
+EXIT
+
+
+Scen5: Delete 2 (1 point) scen5.txt
+Config: chemin DBScen5, taille page 8000, 2 frames
+CREATE TABLE R (C1:INT,C2:VARCHAR(13),C3:FLOAT,C4:INT,C5:INT,C6:VARCHAR(5))
+APPEND INTO R ALLRECORDS (R.csv)
+DELETE R r WHERE r.C4>r.C1 AND 10<r.C3 AND r.C3<=80
+résultat attendu: 713 records, scen5out1.txt
+EXIT
+SELECT * FROM R r
+résultat attendu: 287 records, scen5out2.txt
+DELETE R r WHERE 1449>=r.C4 AND r.C1<=703 AND 71>r.C5 AND 72<=r.C1 AND r.C6>"a" AND r.C2>="aaaacaac" AND r.C2<"dddabc"
+résultat attendu: 93 records, scen5out3.txt
+DELETE R r WHERE 1001<>r.C4 AND 280>=r.C5 AND r.C6>=r.C2 AND "abcbcb"<=r.C2 AND "aaa"<r.C2 AND 2.03946543618319<r.C3 AND r.C6<="duc" AND 106<=r.C4 AND r.C1<930 AND 10<=r.C1 AND r.C3<94.0783734155809 AND "xbcab">=r.C6 AND r.C4>=r.C5 AND 80>=r.C5 AND r.C1>24 AND 80>=r.C5 AND r.C6>="aabd"
+résultat attendu: 40 records, scen5out4.txt
+SELECT * FROM R r
+résultat attendu: 154 records, scen5out5.txt
+EXIT
+
+
+
+Scen6: Update 1 (1 point) scen6.txt
+Config: chemin DBScen6, taille page 1050, 2 frames
+CREATE TABLE Albums (nomAlbum:VARCHAR(100),nomChanteur:VARCHAR(100),annee:INT,avis:CHAR(5),ecouter:VARCHAR(10))
+INSERT INTO Albums VALUES ("UnPipiDansParis","LaReineUrbaine",2024,"Super","oui")
+INSERT INTO Albums VALUES ("LeRatIlSeraLa","LaReineUrbaine",2021,"Super","maybe")
+UPDATE Albums a SET a.avis="Moyen" WHERE a.nomChanteur="LaReineUrbaine"
+résultat attendu: 2 records, scen6out1.txt
+SELECT * FROM Albums a
+résultat attendu: 2 records, scen6out2.txt
+INSERT INTO Albums VALUES ("LeParcmetreCeGrandTraitre1","LaReineUrbaine",2025,"Super","maybe")
+EXIT
+INSERT INTO Albums VALUES ("LeCompost","AngelololoLecolo",2022,"Super","non")
+INSERT INTO Albums VALUES ("AVeloCEstBienPlusChaud","AngelololoLecolo",2023,"Super","oui")
+UPDATE Albums a SET a.ecouter="maybe" WHERE a.annee>2021 AND a.ecouter<>"non" AND a.avis>"Moyen"
+résultat attendu: 2 records, scen6out3.txt
+UPDATE Albums a SET a.nomAlbum="LesChampsFleuris",a.ecouter="jamais" WHERE a.annee=2022 
+résultat attendu: 1 record, scen6out4.txt
+SELECT * FROM Albums a WHERE a.ecouter="maybe"
+résultat attendu: 3 records, scen6out5.txt
+EXIT
+
+
+
+Scen7: Update 2 (1 point) scen7.txt
+Config: chemin DBScen7, taille page 8350, 2 frames
+CREATE TABLE T (C1:CHAR(3),C2:INT,C3:INT,C4:INT,C5:VARCHAR(3))
+APPEND INTO T ALLRECORDS (T.csv)
+UPDATE T t SET t.C1="xxx",t.C5="yb",t.C2=1 WHERE t.C2>=61 AND 32600>t.C3 AND t.C3>=t.C4 AND t.C2<=t.C3 AND "ter">=t.C1 AND t.C1>=t.C5 AND t.C1<>"krw" AND t.C2>=75 AND 1243>=t.C4 AND t.C1>"egw"
+résultat attendu: 363 records, scen7out1.txt
+SELECT t.C1,t.C2 FROM T t WHERE t.C1>="xxx"
+résultat attendu: 363 records, scen7out2.txt
+EXIT
+(relancer)
+UPDATE T t SET t.C3=1999,t.C4=660 WHERE t.C2<=t.C4 AND t.C5="egw" AND t.C1>"egw" AND 660<=t.C3 AND "ewr"=t.C1 AND 893>t.C4 AND 64=t.C2 AND t.C2<=75 AND t.C1>=t.C5
+résultat attendu: 3 records, scen7out3.txt
+SELECT * FROM T t WHERE t.C3<=765
+résultat attendu: 9 records, scen7out4.txt
+EXIT
+
+
+
+Scen8: "Big Data" (2 points) scen8.txt
+Config: chemin DBScen8, taille page 1000000, 100 frames
+CREATE TABLE B (C1:INT,C2:FLOAT,C3:INT,C4:FLOAT,C5:INT,C6:FLOAT,C7:INT,C8:FLOAT,C9:INT,C10:FLOAT)
+APPEND INTO B ALLRECORDS (B.csv)
+APPEND INTO B ALLRECORDS (B.csv)
+APPEND INTO B ALLRECORDS (B.csv)
+APPEND INTO B ALLRECORDS (B.csv)
+APPEND INTO B ALLRECORDS (B.csv)
+APPEND INTO B ALLRECORDS (B.csv)
+APPEND INTO B ALLRECORDS (B.csv)
+APPEND INTO B ALLRECORDS (B.csv)
+EXIT
+(relancer)
+SELECT * FROM B b WHERE b.C1<=100 AND b.C5>=-22 AND 14>b.C3 AND 17.2<b.C2 AND b.C10<0.1 AND b.C8>=-13.0 AND b.C7<312
+résultat attendu: 263144 records, scen8out1.txt
+DELETE B b WHERE b.C1<>312 AND b.C7>=-312 AND 14>b.C9 AND 17.2<b.C6 AND b.C10<-16.0 AND b.C8>=899.0 AND b.C9<1
+résultat attendu: 933248 records, scen8out2.txt
+UPDATE B b SET b.C1=220,b.C3=746,b.C4=-89,b.C5=-1 WHERE b.C8>=35.67 AND b.C5<>14 AND b.C1>=-15 AND 88>b.C3 AND b.C6<b.C8
+résultat attendu: 725482 records, scen8out3.txt
+SELECT b.C1 FROM B b WHERE b.C3=746 AND b.C7=14
+résultat attendu: 168 records, scen8out4.txt

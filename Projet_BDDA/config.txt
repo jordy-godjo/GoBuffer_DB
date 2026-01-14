@@ -1,0 +1,4 @@
+dbpath = "./data"
+pagesize = 4096
+dm_maxfilecount = 8
+dbpath = './data1'
