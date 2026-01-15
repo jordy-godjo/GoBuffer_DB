@@ -1,3 +1,5 @@
+LES TESTS
+
 Scen1: Gestion tables (2 points) scen1.txt
 Config: chemin DBScen1, taille page 4096, 10 frames
 CREATE TABLE Chanteurs (id:INT,nom:VARCHAR(100),note:FLOAT)
