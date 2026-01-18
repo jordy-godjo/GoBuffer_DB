@@ -127,26 +127,6 @@ Bash :
 
 Ensuite, vérifier `output.txt` manuellement ou automatiquement.
 
-### Usage `-fresh` (réinitialiser l'état persistant)
-
-Si vous souhaitez démarrer sur un état vierge (très utile pour une démo déterministe), utilisez le flag `-fresh`. Le programme fera une sauvegarde automatique du dossier `data/` (nommée `data.bak-YYYYmmdd-HHMMSS`) puis supprimera `data/` avant de démarrer.
-
-Exemples :
-
-PowerShell (script non interactif) :
-
-```powershell
-Get-Content .\commands.txt -Raw | .\minisgbd.exe -config config.txt -fresh --yes > .\output.txt
-```
-
-Bash :
-
-```bash
-./minisgbd -config config.txt -fresh --yes < commands.txt > output.txt
-```
-
-Note : sans `--yes`, le programme demandera confirmation interactive avant de supprimer les données ; `--yes` force le comportement non interactif pour les scripts.
-
 ### Vérification automatique (PowerShell)
 
 ```powershell
